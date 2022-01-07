@@ -1,0 +1,44 @@
+#helpdesk
+
+autoTask{
+
+$code = #getAttribute(1, 1);
+
+$price = #fileSearch(1, "products", "product", "id", $code, "price");
+
+$category = #fileSearch(1, "products", "product", "id", $code, "category");
+
+$total = $price * #getAttribute(1, 2);
+
+#if($total > 10){
+    $discount = 3;
+}
+else{
+    $discount = 1;
+}
+
+#if($category == "ABC"){
+    $discount = $discount + 0.5;
+}
+
+$valueDiscount = $total * $discount / 100;
+
+$valuePostDiscount = $total - $valueDiscount;
+
+#if(#getAttribute(1, 3) == "National"){
+    $text = "National:      Total value: " + $total + ", Discount value: " + $valueDiscount + ", Post discount value: " + $valuePostDiscount;
+}
+
+#if(#getAttribute(1, 3) == "European"){
+    $text = "European:      Total value: " + $total + ", Discount value: " + $valueDiscount + ", Post discount value: " + $valuePostDiscount;
+}
+
+#if(#getAttribute(1, 3) == "World"){
+    $text = "World:      Total value: " + $total + ", Discount value: " + $valueDiscount + ", Post discount value: " + $valuePostDiscount;
+}
+
+#sendEmail("Product price", $text);
+
+}
+
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence">
+  <persistence-unit name="eapli.base">
+    <!--
+  <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+  -->
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+    <class>eapli.framework.infrastructure.authz.domain.model.SystemUser</class>
+    <class>eapli.framework.infrastructure.authz.domain.model.Role</class>
+    <class>eapli.framework.infrastructure.authz.domain.model.RoleSet</class>
+    <class>eapli.framework.infrastructure.authz.domain.model.RoleAssignment</class>
+    <class>eapli.base.clientusermanagement.domain.ClientUser</class>
+    <class>eapli.base.clientusermanagement.domain.SignupRequest</class>
+    <class>eapli.base.servicemanagement.domain.Service</class>
+    <class>eapli.base.servicemanagement.domain.ServiceDraft</class>
+    <class>eapli.base.formmanagement.domain.Form</class>
+    <class>eapli.base.teammanagement.domain.Team</class>
+    <class>eapli.base.teamtypemanagement.domain.TeamType</class>
+    <class>eapli.base.cataloguemanagement.domain.Catalogue</class>
+    <class>eapli.base.collaboratormanagement.domain.Collaborator</class>
+    <class>eapli.base.taskmanagement.specification.domain.Task</class>
+    <class>eapli.base.taskmanagement.specification.domain.ManualTask</class>
+    <class>eapli.base.taskmanagement.specification.domain.AutomaticTask</class>
+    <class>eapli.base.ticketmanagement.domain.Ticket</class>
+    <class>eapli.base.ticketmanagement.domain.Response</class>
+    <class>eapli.base.activityfluxmanagement.specification.domain.ActivityFlux</class>
+    <class>eapli.base.activityfluxmanagement.execution.domain.ActivityFluxExecution</class>
+    <class>eapli.base.taskmanagement.execution.domain.TaskExecution</class>
+    <class>eapli.base.taskmanagement.execution.domain.ManualTaskExecution</class>
+    <class>eapli.base.taskmanagement.execution.domain.AutomaticTaskExecution</class>
+
+    <properties>
+      <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/../db/base"/>-->
+
+      <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://vsgate-s2.dei.isep.ipp.pt:10357/db/data;MV_STORE=FALSE;AUTO_SERVER=true;"/>
+
+      <property name="javax.persistence.jdbc.user" value="lisa"/>
+      <property name="javax.persistence.jdbc.password" value="lapr4nota20grupolisa"/>
+      <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <!-- <property name="eclipselink.logging.level" value="FINE"/> -->
+      <!-- <property name = "hibernate.show_sql" value = "true" /> -->
+      <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+
+    </properties>
+  </persistence-unit>
+</persistence>

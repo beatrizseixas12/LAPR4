@@ -1,0 +1,15 @@
+#helpdesk
+
+validateForm{
+
+$var1 = 3;
+$var2 = 4 * 2 - 24 / 3 + 1;
+$var3 = 31;
+
+#if($var1 == 3){
+	#assert($var2 > 0 && $var2 < $var3);
+} else{
+	#mandatory(0);
+}
+
+}
